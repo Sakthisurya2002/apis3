@@ -39,12 +39,12 @@ app.get('/players/', async (request, response) => {
 })
 app.post('/players/', async (request, response) => {
   const body = request.body
-  const {player_name, jersey_number, role} = body
+  const {playerName, jerseyNumber, role} = body
   const dbquery2 = `
     insert into cricket_team (player_name, jersey_number,role) values
     (
-      "${player_name}",
-      "${jersey_number}",
+      "${playerName}",
+      "${jerseyNumber}",
       "${role}"
     );
     `
@@ -63,9 +63,9 @@ app.get('/players/:playerId/', async (request, response) => {
 app.put('/players/:playerId/', async (request, response) => {
   const {playerId} = request.params
   const body4 = request.body
-  const {player_name, jersey_number, role} = body4
-  const db10 = `update cricket_team set player_name="${player_name}",
-  jersey_number="${jersey_number}",
+  const {playerName, jerseyNumber, role} = body4
+  const db10 = `update cricket_team set player_name="${playerName}",
+  jersey_number="${jerseyNumber}",
   role="${role}" where player_id=${playerId};
   `
   const result8 = await db.run(db10)
